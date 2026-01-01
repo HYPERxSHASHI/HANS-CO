@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | HANS & CO.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #111111;
+            --ink-color: #ffffff;
+            --sub-ink: #b0b0b0;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-color: #ff375f;
+            
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --radius-lg: 20px;
+            
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--bg-color);
+            color: var(--ink-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .bg-noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -2;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 5vw, 40px);
+            position: relative;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 28px 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            letter-spacing: -0.02em;
+            position: relative;
+            color: var(--ink-color);
+            text-decoration: none;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--sub-ink);
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s var(--ease-out);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .back-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .terms-header {
+            padding-top: 180px;
+            padding-bottom: 60px;
+            text-align: center;
+        }
+        
+        .terms-header h1 {
+            font-family: var(--font-head);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent-color), #ff7b9c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .terms-header p {
+            color: var(--sub-ink);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .last-updated {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 55, 95, 0.1);
+            border: 1px solid rgba(255, 55, 95, 0.3);
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        .terms-content {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            margin-bottom: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .terms-content {
+                padding: 30px 20px;
+            }
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section h2 {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--ink-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .section h3 {
+            font-family: var(--font-head);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 25px 0 15px;
+            color: var(--ink-color);
+        }
+        
+        .section p {
+            color: var(--sub-ink);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .section ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section li {
+            color: var(--sub-ink);
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .section li strong {
+            color: var(--ink-color);
+        }
+        
+        .highlight-box {
+            background: rgba(255, 55, 95, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            color: var(--ink-color);
+            font-weight: 500;
+        }
+        
+        .warning-box {
+            background: rgba(255, 183, 0, 0.1);
+            border-left: 4px solid #ffb700;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning-box p {
+            margin: 0;
+            color: var(--ink-color);
+            font-weight: 500;
+        }
+        
+        .legal-note {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        footer {
+            padding: 60px 0 40px;
+            text-align: center;
+            color: var(--sub-ink);
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--sub-ink);
+            text-decoration: none;
+            transition: all 0.3s var(--ease-out);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .agreement-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            transition: all 0.4s var(--ease-out);
+            cursor: pointer;
+            display: block;
+            margin: 40px auto 0;
+            text-align: center;
+            text-decoration: none;
+            width: 250px;
+        }
+        
+        .agreement-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(255, 55, 95, 0.3);
+        }
+        
+        .agreement-btn:active {
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        
+        .acceptance-required {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            background: rgba(255, 55, 95, 0.05);
+        }
+        
+        .acceptance-required p {
+            font-weight: 600;
+            color: var(--ink-color);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="bg-noise"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                HANS & CO.
+            </a>
+            
+            <a href="preorder.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Pre-Order
+            </a>
+        </div>
+    </nav>
+
+    <!-- Terms Header -->
+    <section class="terms-header">
+        <div class="container">
+            <h1>Terms & Conditions</h1>
+            <p>Last Updated: April 2025</p>
+            <div class="last-updated">
+                <i class="fas fa-clock"></i> Applicable to HANS & CO. Pre-Orders
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content -->
+    <section class="terms-content">
+        <div class="container">
+            <div class="section">
+                <h2>1. Introduction</h2>
+                <h3>1.1 Agreement Overview</h3>
+                <p>Welcome to HANS & CO. These Terms and Conditions ("Terms") govern your pre-order of HANS Display products ("Product") and use of our services. By placing a pre-order, creating an account, or using our services, you enter into a legally binding agreement with HANS & CO.</p>
+                
+                <h3>1.2 Agreement Formation</h3>
+                <p>Your continued use of our services constitutes ongoing acceptance of these Terms, including any amendments. If you do not agree to these Terms, you must not use our services or place a pre-order.</p>
+                
+                <h3>1.3 Eligibility</h3>
+                <p>You must be at least 18 years old and have the legal capacity to enter into contracts. By using our services, you represent that you meet these requirements.</p>
+                
+                <div class="highlight-box">
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Important:</strong> This is a pre-order reservation. Your payment will only be processed when your unit is ready to ship (estimated Q3 2025).</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. Pre-Order Process</h2>
+                <h3>2.1 Reservation</h3>
+                <p>Your pre-order secures your place in the production queue. You are not purchasing an immediate product but reserving a unit from our limited first production batch.</p>
+                
+                <h3>2.2 Payment Authorization</h3>
+                <p>When you place a pre-order, we authorize your payment method for the total amount. The actual charge will only occur when your unit is ready to ship.</p>
+                
+                <h3>2.3 Production Timeline</h3>
+                <ul>
+                    <li><strong>Q2 2025:</strong> Final prototyping and production setup</li>
+                    <li><strong>Q3 2025:</strong> Mass production begins</li>
+                    <li><strong>Q3-Q4 2025:</strong> Staggered shipping based on pre-order sequence</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Pricing and Payment</h2>
+                <h3>3.1 Pricing</h3>
+                <p>All prices are in Indian Rupees (₹) and exclusive of applicable taxes. For international customers, prices will be converted to your local currency at the prevailing exchange rate at the time of shipping.</p>
+                
+                <h3>3.2 Taxes</h3>
+                <p>Indian customers: 18% GST will be added to the final invoice. International customers: You may be responsible for import duties, taxes, and fees levied by your country's customs authorities.</p>
+                
+                <h3>3.3 Early Bird Pricing</h3>
+                <p>The displayed pricing is early bird pricing valid for a limited time. We reserve the right to adjust prices for future production batches.</p>
+            </div>
+
+            <div class="section">
+                <h2>4. Shipping and Delivery</h2>
+                <h3>4.1 Shipping Method</h3>
+                <p>We use DHL Express for all shipments. Shipping is free for all pre-orders.</p>
+                
+                <h3>4.2 Delivery Timeline</h3>
+                <p>Estimated shipping begins Q3 2025. You will receive tracking information via email once your unit ships. Delivery times vary by location:</p>
+                <ul>
+                    <li>India: 3-7 business days</li>
+                    <li>International: 7-14 business days</li>
+                </ul>
+                
+                <h3>4.3 Address Changes</h3>
+                <p>You may update your shipping address until your unit enters production. After production begins, address changes may not be possible.</p>
+            </div>
+
+            <div class="section">
+                <h2>5. Cancellations and Refunds</h2>
+                <h3>5.1 Cancellation Policy</h3>
+                <p>You may cancel your pre-order at any time before your unit enters production for a full refund. Once production begins, cancellations may be subject to a 10% restocking fee.</p>
+                
+                <h3>5.2 Refund Processing</h3>
+                <p>Refunds will be processed within 14 business days and credited back to your original payment method.</p>
+                
+                <h3>5.3 Our Cancellation Rights</h3>
+                <p>We reserve the right to cancel any pre-order if:</p>
+                <ul>
+                    <li>We are unable to fulfill the order due to production constraints</li>
+                    <li>There are issues with payment verification</li>
+                    <li>The order violates our terms</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6. Warranty and Support</h2>
+                <h3>6.1 Warranty Coverage</h3>
+                <p>All HANS Display products come with:</p>
+                <ul>
+                    <li><strong>Essential Package:</strong> 1-year limited warranty</li>
+                    <li><strong>Creator Package:</strong> 2-year extended warranty</li>
+                    <li><strong>Collector Package:</strong> 3-year premium warranty</li>
+                </ul>
+                
+                <h3>6.2 What's Covered</h3>
+                <p>The warranty covers manufacturing defects in materials and workmanship under normal use. It does not cover damage from accidents, misuse, or unauthorized modifications.</p>
+                
+                <h3>6.3 Support</h3>
+                <p>Email support is available at <strong>support@hansand.co</strong>. Priority support is included with Creator and Collector packages.</p>
+            </div>
+
+            <div class="section">
+                <h2>7. User Responsibilities and Acceptable Use</h2>
+                
+                <h3>7.1 Account Security</h3>
+                <p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+                
+                <h3>7.2 Acceptable Conduct</h3>
+                <p>When using our services, you agree not to:</p>
+                <ul>
+                    <li>Violate any applicable laws or regulations</li>
+                    <li>Infringe upon intellectual property rights</li>
+                    <li>Distribute malicious software or engage in hacking attempts</li>
+                    <li>Harass, abuse, or harm other users</li>
+                    <li>Attempt to circumvent security measures</li>
+                    <li>Use our services for any illegal or unauthorized purpose</li>
+                </ul>
+                
+                <h3>7.3 Content Standards</h3>
+                <p>Any content you submit must not:</p>
+                <ul>
+                    <li>Contain defamatory, obscene, or offensive material</li>
+                    <li>Infringe on privacy rights</li>
+                    <li>Contain false or misleading information</li>
+                    <li>Promote violence or illegal activities</li>
+                </ul>
+                
+                <h3>7.4 Consequences of Violation</h3>
+                <p>Violation of these terms may result in immediate termination of your account, cancellation of pre-orders, and potential legal action. We reserve the right to investigate violations and cooperate with law enforcement authorities.</p>
+            </div>
+
+            <div class="section">
+                <h2>8. Intellectual Property</h2>
+                <h3>8.1 Ownership</h3>
+                <p>All intellectual property rights in the Product, including design, software, branding, trademarks, and proprietary technology, belong exclusively to HANS & CO. You receive a limited, non-exclusive, non-transferable license to use the Product for personal, non-commercial purposes only.</p>
+                
+                <h3>8.2 Restrictions</h3>
+                <p>You may not:</p>
+                <ul>
+                    <li>Copy, modify, or create derivative works of the Product</li>
+                    <li>Reverse engineer, decompile, or disassemble the Product</li>
+                    <li>Remove any proprietary notices or labels</li>
+                    <li>Use our trademarks without express written permission</li>
+                </ul>
+                
+                <h3>8.3 User Content</h3>
+                <p>You retain ownership of content you create using our Product, but grant HANS & CO. a worldwide, royalty-free license to use, display, and distribute such content for marketing and improvement purposes.</p>
+            </div>
+
+            <div class="section">
+                <h2>9. Payment and Fees</h2>
+                <h3>9.1 Payment Processing</h3>
+                <p>All payments are processed through secure third-party payment processors. We do not store your full payment card details on our servers.</p>
+                
+                <h3>9.2 Failed Payments</h3>
+                <p>If a payment fails, we will attempt to process it again within 7 days. If payment continues to fail, your pre-order may be canceled and your place in the queue forfeited.</p>
+                
+                <h3>9.3 Price Changes</h3>
+                <p>Once your pre-order is confirmed, the price is locked in and will not be affected by future price increases.</p>
+            </div>
+
+            <div class="section">
+                <h2>10. Limitation of Liability and Disclaimers</h2>
+                
+                <h3>10.1 Warranty Disclaimers</h3>
+                <p>THE PRODUCT IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, HANS & CO. DISCLAIMS ALL WARRANTIES, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+                
+                <h3>10.2 Liability Cap</h3>
+                <p>IN NO EVENT SHALL HANS & CO.'S TOTAL LIABILITY EXCEED THE PURCHASE PRICE PAID FOR THE PRODUCT. THIS LIMITATION APPLIES REGARDLESS OF THE LEGAL THEORY (CONTRACT, TORT, OR OTHERWISE) AND EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+                
+                <h3>10.3 Excluded Damages</h3>
+                <p>WE ARE NOT LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, DATA LOSS, OR BUSINESS INTERRUPTION, ARISING FROM YOUR USE OF OR INABILITY TO USE THE PRODUCT.</p>
+                
+                <h3>10.4 Essential Purpose</h3>
+                <p>THE LIMITATIONS IN THIS SECTION ARE FUNDAMENTAL ELEMENTS OF THE BASIS OF THE BARGAIN BETWEEN YOU AND HANS & CO. WE WOULD NOT PROVIDE THE PRODUCT WITHOUT THESE LIMITATIONS.</p>
+            </div>
+
+            <div class="section">
+                <h2>11. Indemnification</h2>
+                <p>You agree to indemnify, defend, and hold harmless HANS & CO., its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with:</p>
+                <ul>
+                    <li>Your access to or use of our services</li>
+                    <li>Your violation of these Terms</li>
+                    <li>Your violation of any third-party right</li>
+                    <li>Any content you submit or transmit through our services</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>12. Termination and Suspension</h2>
+                
+                <h3>12.1 Your Termination Rights</h3>
+                <p>You may terminate your account at any time by contacting customer support. Termination of your account will result in cancellation of any pending pre-orders.</p>
+                
+                <h3>12.2 Our Termination Rights</h3>
+                <p>We may suspend or terminate your access to our services immediately, without prior notice or liability, for any reason, including if you:</p>
+                <ul>
+                    <li>Violate these Terms</li>
+                    <li>Engage in fraudulent or illegal activities</li>
+                    <li>Fail to make payments when due</li>
+                    <li>Create risk or possible legal exposure for us</li>
+                </ul>
+                
+                <h3>12.3 Effect of Termination</h3>
+                <p>Upon termination, your right to use our services will immediately cease. All provisions which by their nature should survive termination shall survive, including intellectual property rights, warranty disclaimers, and limitations of liability.</p>
+            </div>
+
+            <div class="section">
+                <h2>13. Dispute Resolution and Governing Law</h2>
+                
+                <h3>13.1 Mandatory Arbitration</h3>
+                <p>Any dispute, claim, or controversy arising out of or relating to these Terms or the breach, termination, enforcement, interpretation, or validity thereof, including the determination of the scope or applicability of this agreement to arbitrate, shall be determined by arbitration in New Delhi, India.</p>
+                
+                <h3>13.2 Arbitration Rules</h3>
+                <p>The arbitration shall be administered by the Indian Council of Arbitration in accordance with its rules. Judgment on the award may be entered in any court having jurisdiction.</p>
+                
+                <h3>13.3 Class Action Waiver</h3>
+                <p>YOU AGREE TO RESOLVE DISPUTES ON AN INDIVIDUAL BASIS. ANY CLAIMS MUST BE BROUGHT IN YOUR INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.</p>
+                
+                <h3>13.4 Governing Law</h3>
+                <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles.</p>
+                
+                <h3>13.5 Jurisdiction</h3>
+                <p>For any disputes not subject to arbitration, you agree to submit to the personal jurisdiction of the courts located in New Delhi, India.</p>
+            </div>
+
+            <div class="section">
+                <h2>14. Privacy and Data Protection</h2>
+                
+                <h3>14.1 Privacy Policy</h3>
+                <p>Your use of our services is also governed by our Privacy Policy, which is incorporated by reference into these Terms. The Privacy Policy explains how we collect, use, and protect your personal information.</p>
+                
+                <h3>14.2 Data Processing</h3>
+                <p>We process personal data in accordance with applicable data protection laws, including India's Digital Personal Data Protection Act, 2023, and the GDPR for European users.</p>
+                
+                <h3>14.3 Data Rights</h3>
+                <p>You have certain rights regarding your personal data, including access, correction, and deletion rights. For more information, please refer to our Privacy Policy.</p>
+            </div>
+
+            <div class="section">
+                <h2>15. Amendments and Updates</h2>
+                
+                <h3>15.1 Modification Rights</h3>
+                <p>We reserve the right to modify these Terms at any time. When we make changes, we will update the "Last Updated" date at the top of this document.</p>
+                
+                <h3>15.2 Notification</h3>
+                <p>For material changes, we will provide notice through our website, email, or other reasonable means at least 30 days before the changes take effect.</p>
+                
+                <h3>15.3 Acceptance of Changes</h3>
+                <p>Your continued use of our services after the effective date of revised Terms constitutes your acceptance of the changes. If you do not agree to the updated Terms, you must discontinue using our services.</p>
+                
+                <h3>15.4 Archived Versions</h3>
+                <p>Previous versions of these Terms will be archived and made available upon request for a period of 3 years.</p>
+            </div>
+
+            <div class="section">
+                <h2>16. Miscellaneous Provisions</h2>
+                
+                <h3>16.1 Entire Agreement</h3>
+                <p>These Terms constitute the entire agreement between you and HANS & CO. regarding our services and supersede any prior agreements.</p>
+                
+                <h3>16.2 Severability</h3>
+                <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.</p>
+                
+                <h3>16.3 No Waiver</h3>
+                <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.</p>
+                
+                <h3>16.4 Assignment</h3>
+                <p>You may not assign your rights under these Terms without our prior written consent. We may assign our rights without restriction.</p>
+                
+                <h3>16.5 Force Majeure</h3>
+                <p>We are not liable for any failure to perform due to causes beyond our reasonable control, including natural disasters, war, terrorism, or government restrictions.</p>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>HANS & CO.</strong></p>
+                <p>Email: legal@hansand.co</p>
+                <p>Phone: +91 99999 99999</p>
+                <p class="legal-note">For legal notices: Please send all formal legal notices to the above email with "LEGAL NOTICE" in the subject line.</p>
+            </div>
+
+            <div class="acceptance-required">
+                <p><i class="fas fa-check-circle"></i> By clicking "I Agree to Terms & Conditions" below, you acknowledge that you have read, understood, and agree to be bound by all terms and conditions outlined in this document.</p>
+            </div>
+
+            <a href="preorder.html" class="agreement-btn" onclick="recordConsent()">
+                <i class="fas fa-check-circle"></i> I Agree to Terms & Conditions
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="font-weight: 800; font-size: 1.8rem; margin-bottom: 12px; letter-spacing: -0.02em;">HANS & CO.</div>
+            <p style="font-size: 0.9rem; color: #888; margin-top: 8px; letter-spacing: 0.1em;">DIGITAL HERITAGE & PRESERVATION</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Main Site</a>
+                <a href="preorder.html">Pre-Order Portal</a>
+                <a href="mailto:legal@hansand.co">Legal Contact</a>
+            </div>
+            
+            <p style="margin-top: 40px; font-size: 0.8rem; color: #666;">
+                © 2025 HANS & CO. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Fade in animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.8s var(--ease-out)';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Enhanced Consent Recording Function
+        function recordConsent() {
+            // Create consent data object
+            const consentData = {
+                timestamp: new Date().toISOString(),
+                version: '2025-04',
+                termsVersion: '1.0',
+                userAgent: navigator.userAgent,
+                screenResolution: `${window.screen.width}x${window.screen.height}`,
+                language: navigator.language,
+                platform: navigator.platform,
+                cookiesEnabled: navigator.cookieEnabled,
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+            };
+            
+            try {
+                // Store consent in localStorage
+                localStorage.setItem('hans_terms_consent', JSON.stringify(consentData));
+                localStorage.setItem('hans_terms_accepted', 'true');
+                localStorage.setItem('hans_terms_last_accepted', new Date().toISOString());
+                
+                // Store in sessionStorage for current session
+                sessionStorage.setItem('hans_terms_accepted_session', 'true');
+                
+                // Set a cookie (optional, for server-side verification)
+                document.cookie = `hans_terms_accepted=true; path=/; max-age=${60*60*24*365}; SameSite=Strict`;
+                
+                // Create visual feedback
+                const button = document.querySelector('.agreement-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Agreement Recorded';
+                button.style.background = '#10b981';
+                
+                // Show confirmation message
+                setTimeout(() => {
+                    alert('Thank you for agreeing to our Terms & Conditions. Your consent has been recorded. You will now be redirected to the pre-order page.');
+                }, 300);
+                
+                // Redirect after delay
+                setTimeout(() => {
+                    window.location.href = 'preorder.html';
+                }, 1500);
+                
+            } catch (error) {
+                console.error('Error recording consent:', error);
+                // Fallback - just redirect
+                window.location.href = 'preorder.html';
+            }
+            
+            // Prevent default link behavior
+            return false;
+        }
+
+        // Check if user has previously accepted terms
+        function checkPreviousConsent() {
+            const hasAccepted = localStorage.getItem('hans_terms_accepted');
+            const lastAccepted = localStorage.getItem('hans_terms_last_accepted');
+            
+            if (hasAccepted === 'true' && lastAccepted) {
+                const lastAcceptedDate = new Date(lastAccepted);
+                const currentDate = new Date();
+                const daysSinceAcceptance = Math.floor((currentDate - lastAcceptedDate) / (1000 * 60 * 60 * 24));
+                
+                // If accepted within last 30 days, show reminder
+                if (daysSinceAcceptance < 30) {
+                    const button = document.querySelector('.agreement-btn');
+                    button.innerHTML = '<i class="fas fa-redo"></i> Re-confirm Agreement';
+                    button.title = `You previously accepted these terms on ${lastAcceptedDate.toLocaleDateString()}`;
+                }
+            }
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', checkPreviousConsent);
+    </script>
+</body>
+</html>
